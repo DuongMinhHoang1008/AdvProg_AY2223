@@ -18,11 +18,12 @@ int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
     int num;
-    while(true)
+    /*while(true)
     {
         num=rand();
         if(num>=min&&num<=max) break;
-    }
+    }*/
+    num=rand()%(max-min+1)-min;
     return num;
 }
 
