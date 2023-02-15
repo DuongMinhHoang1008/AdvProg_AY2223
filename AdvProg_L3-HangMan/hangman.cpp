@@ -23,7 +23,7 @@ int generateRandomNumber(const int min, const int max)
         num=rand();
         if(num>=min&&num<=max) break;
     }*/
-    num=rand()%(max-min+1)-min;
+    num=rand()%(max-min+1)+min;
     return num;
 }
 
