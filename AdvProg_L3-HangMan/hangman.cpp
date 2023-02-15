@@ -23,7 +23,7 @@ int generateRandomNumber(const int min, const int max)
         num=rand();
         if(num>=min&&num<=max) break;
     }*/
-    num=rand()%(max-min+1)-min;
+    num=rand()%(max-min+1)+min;
     return num;
 }
 
@@ -73,6 +73,10 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer=wordList[index];
+    for(int i=0;i<answer.length();i++)
+    {
+        answer[i]=tolower(answer[i]);
+    }
     return answer;
 }
 
