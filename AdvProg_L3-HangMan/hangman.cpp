@@ -139,11 +139,6 @@ void updateIncorrectGuess(int& incorrectGuess){
     if(!isCharInWord) incorrectGuess++;
 }
 
-void updateIncorrectChars(const char ch, string& chars){
-    // TODO: append the character ch is in end of the text chars
-    chars+=ch;
-}
-
 /***
     Args:
         ch (char): a character that player enter to console
@@ -176,7 +171,7 @@ void processData(const char ch, const string& word,
     else
     {
         updateIncorrectGuess(incorrectGuess);
-        updateIncorrectChars(ch,incorrectChars);
+        updateEnteredChars(ch,incorrectChars);
     }
 }
 
