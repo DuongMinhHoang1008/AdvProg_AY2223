@@ -107,7 +107,13 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    if(isCharInWord(ch,word)){ for(int i=0;i<word.length();i++)  {if(ch==word[i]) {secretWord[i]=ch; } }}
+    if(isCharInWord(ch,word))
+    {
+        for(int i=0;i<word.length();i++)
+        {
+                if(ch==word[i]) {secretWord[i]=ch; }
+        }
+    }
 }
 
 /***
@@ -157,7 +163,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    if(isCharInWord)
+    if(isCharInWord(ch,word))
     {
         updateSecretWord(secretWord,ch,word);
         updateEnteredChars(ch,correctChars);
