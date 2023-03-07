@@ -132,7 +132,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    int len=candidateWords.size(),int wordlen=candidateWords[0].length();
+    int len=candidateWords.size(),wordlen=candidateWords[0].length();
     int ch[200]={0};
     for(int i=0;i<len;i++)
     {
