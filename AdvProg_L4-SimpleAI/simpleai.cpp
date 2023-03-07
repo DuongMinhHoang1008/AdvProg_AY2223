@@ -156,9 +156,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
     int ma=0;
     for(int i='a';i<'z';i++)
     {
-        if(ch[i]>ma) ma=ch[i];
+        if(ch[i]>ma) {ma=ch[i];answer=i;}
     }
-    answer=ma;
     return answer;
 }
 
