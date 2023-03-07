@@ -48,9 +48,14 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    for(char c: selectedChars)
+    for(int i='a';i<='z';i++)
     {
-        if(c!=selectedChars) {answer = c;break;}
+        char ch=i;bool ok=false;
+        for(char c: selectedChars)
+        {
+            if(c!=ch) {answer = c;ok=true;break;}
+        }
+        if(ok) break;
     }
     return answer;
 }
@@ -97,7 +102,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
         bool notselected=true;
         for(char c: selectedChars)
         {
-            if(c==selectedChars) {notselected=false;break;}
+            if(c==cha) {notselected=false;break;}
         }
         if(notselected)
         {
