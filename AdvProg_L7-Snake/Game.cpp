@@ -58,7 +58,7 @@ void Game::snakeMoveTo(Position pos) {
     }
 	else
     {
-        if(squares[pos.y][pos.x]==CELL_SNAKE) { status=GAME_OVER; break; }
+        if(squares[pos.y][pos.x]==CELL_SNAKE) { status=GAME_OVER;}
         else
         {
             if(getCellType(randomPos) == CELL_CHERRY)
