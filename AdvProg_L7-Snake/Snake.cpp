@@ -30,7 +30,7 @@ Snake::~Snake()
     {
         SnakeNode* nextnode = p->next;
         delete p;
-        p = newnode;
+        p = nextnode;
     }
 }
 
@@ -173,7 +173,7 @@ void Snake::move(Direction direction)
     } else {
     	game.snakeLeave(tail->position);
         /* YOUR CODE HERE */
-        slideTo(newPosition)
+        slideTo(newPosition);
     }
 }
 
