@@ -52,7 +52,7 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	if(pos.isInsideBox(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))
+	if(pos.isInsideBox(0,0,width,height))
     {
         status=GAME_OVER;
     }
@@ -176,8 +176,8 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
-        randomPos.x=rand()%(SCREEN_WIDTH+1);
-        randomPos.y=rand()%(SCREEN_HEIGHT+1);
+        randomPos.x=rand()%(width+1);
+        randomPos.y=rand()%(height+1);
 
 		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
@@ -213,7 +213,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	//
 	// START CODE HERE
-	if(pos.isInsideBox(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))
+	if(pos.isInsideBox(0,0,width,height))
     {
         squares[pos.y][pos.x] = CELL_EMPTY;
     }
