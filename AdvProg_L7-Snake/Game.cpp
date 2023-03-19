@@ -52,7 +52,7 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	if(!pos.isInsideBox(0,0,width,height))
+	if(squares[pos.y][pos.x]==CELL_OFF_BOARD)
     {
         status=GAME_OVER;
     }
