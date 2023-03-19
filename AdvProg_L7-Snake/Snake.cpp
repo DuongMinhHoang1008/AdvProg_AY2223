@@ -59,9 +59,8 @@ vector<Position> Snake::getPositions() const
 void Snake::growAtFront(Position newPosition)
 {
     // head of snake grow at new position
-	SnakeNode* newnode = head;
-	head->position=newPosition;
-	newnode->next=head;
+	head->next = new SnakeNode(newPosition);
+	head = head->next;
     /* YOUR CODE HERE */
 }
 
