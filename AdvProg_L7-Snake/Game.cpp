@@ -59,7 +59,7 @@ void Game::snakeMoveTo(Position pos) {
 	else
     {
         bool hit=false;
-        for(SnakeNode* snode=snake.head->next;snode!=NULL;snode=snode->next)
+        for(SnakeNode* snode=snake.tail;snode!=snake.head;snode=snode->next)
         {
             if(pos==snode->position)
             {
@@ -72,7 +72,10 @@ void Game::snakeMoveTo(Position pos) {
         {
             if(pos==cherryPosition)
             {
-
+                score++;
+                snake.eatCherry();
+                setCellType(pos,CELL_SNAKE);
+                addCherry();
             }
         }
     }
@@ -95,9 +98,8 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	//
-	//
-	//
+	setCellType(position,CELL_EMPTY);
+
 	// END CODE HERE
 }
 
@@ -124,9 +126,7 @@ void Game::processUserInput(Direction direction)
  *
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (current == UP || current == DOWN)
-		return 0; // YOUR CODE HERE
-	return 0;// YOUR CODE HERE
+	return (current!=UP && next==DOWN)||(current!=DOWN && next==UP)||(current!=LEFT && next==RIGHT)||(current!=RIGHT && next==LEFT);
 }
 
 
@@ -150,13 +150,14 @@ void Game::nextStep()
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
         Direction next ; // YOUR CODE HERE
-
+        next=inputQueue.front();
 		// remove the front of input queue
         // YOUR CODE HERE
-
+        inputQueue.pop();
 		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
         	// YOUR CODE HERE
+        	currentDirection=next;
         	break;
 		}
     }
@@ -184,6 +185,8 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
+        randomPos.x=rand()%(SCREEN_WIDTH+1);
+        randomPos.y=rand()%(SCREEN_HEIGHT+1);
 
 		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
@@ -192,7 +195,8 @@ void Game::addCherry()
 
 			// YOUR CODE HERE
 			// YOUR CODE HERE
-
+            cherryPosition=randomPos;
+            squares[randomPos.y][randomPos.x]=CELL_CHERRY;
        		break;
         }
     } while (true);
@@ -220,7 +224,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	if(pos.isInsideBox(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))
     {
-        squares[pos.y][pos.x]
+        squares[pos.y][pos.x] = CELL_EMPTY;
     }
 	// END CODE HERE
 }
