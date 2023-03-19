@@ -180,7 +180,7 @@ void Game::addCherry()
         randomPos.y=rand()%height;
 
 		// check if the randomPos is EMPTY
-        if (squares[pos.y][pos.x] == CELL_EMPTY) {
+        if (squares[randomPos.y][randomPos.x] == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
 
