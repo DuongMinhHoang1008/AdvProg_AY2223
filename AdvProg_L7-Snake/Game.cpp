@@ -180,7 +180,7 @@ void Game::addCherry()
         randomPos.y=rand()%height;
 
 		// check if the randomPos is EMPTY
-        if (getCellType(randomPos) == CELL_EMPTY) {
+        if (squares[pos.y][pos.x] == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
 
@@ -215,7 +215,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// START CODE HERE
 	if(pos.isInsideBox(0,0,width,height))
     {
-        squares[pos.y][pos.x] = CELL_EMPTY;
+        squares[pos.y][pos.x] = cellType;
     }
 	// END CODE HERE
 }
