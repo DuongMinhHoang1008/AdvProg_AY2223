@@ -161,7 +161,7 @@ void Snake::move(Direction direction)
     game.snakeMoveTo(newPosition);
     // If gameOver, return ;
     /* YOUR CODE HERE */
-    if(game.status==GAME_OVER)
+    if(game.isGameOver())
     {
         return ;
     }

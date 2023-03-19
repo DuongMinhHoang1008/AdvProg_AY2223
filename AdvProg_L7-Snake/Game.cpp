@@ -58,15 +58,15 @@ void Game::snakeMoveTo(Position pos) {
     }
 	else
     {
-        if(squares[pos.y][pos.x]==CELL_SNAKE) status=GAME_OVER;
+        if(squares[pos.y][pos.x]==CELL_SNAKE) { status=GAME_OVER;}
         else
         {
-            if(pos==cherryPosition)
+            if(getCellType(randomPos) == CELL_CHERRY)
             {
                 score++;
                 snake.eatCherry();
-                setCellType(pos,CELL_SNAKE);
                 addCherry();
+                setCellType(pos,CELL_SNAKE);
             }
         }
     }
@@ -176,8 +176,8 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
-        randomPos.x=rand()%(width+1);
-        randomPos.y=rand()%(height+1);
+        randomPos.x=rand()%width;
+        randomPos.y=rand()%height;
 
 		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
@@ -187,7 +187,7 @@ void Game::addCherry()
 			// YOUR CODE HERE
 			// YOUR CODE HERE
             cherryPosition=randomPos;
-            squares[randomPos.y][randomPos.x]=CELL_CHERRY;
+            setCellType(randomPos,CELL_CHERRY);
        		break;
         }
     } while (true);
