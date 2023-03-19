@@ -58,17 +58,8 @@ void Game::snakeMoveTo(Position pos) {
     }
 	else
     {
-        bool hit=false;
-        for(SnakeNode* snode=snake.tail;snode!=snake.head;snode=snode->next)
-        {
-            if(pos==snode->position)
-            {
-                hit = true;
-                status=GAME_OVER;
-                break;
-            }
-        }
-        if(!hit)
+        if(squares[pos.y][pos.x]==CELL_SNAKE) status=GAME_OVER;
+        else
         {
             if(pos==cherryPosition)
             {
